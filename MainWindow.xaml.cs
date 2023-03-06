@@ -24,5 +24,10 @@ namespace lenght_convert
         {
             InitializeComponent();
         }
+
+        private void btnGO_Click(object sender, RoutedEventArgs e)
+        {
+            txtShow.Text = "Hello World !";
+        }
     }
 }
