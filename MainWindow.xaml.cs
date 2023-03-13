@@ -27,7 +27,17 @@ namespace lenght_convert
 
         private void btnGO_Click(object sender, RoutedEventArgs e)
         {
-            txtShow.Text = "Hello World !";
+  
+        }
+
+        private void txtShow_Copy5_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtSHow_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
