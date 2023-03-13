@@ -20,23 +20,28 @@ namespace lenght_convert
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private void txtCM_KeyUp(object sender, KeyEventArgs e)
         {
-            InitializeComponent();
-        }
+            double douCM; //宣告一個double變數，變數名稱叫douCM
+            douCM = Convert.ToDouble(txtCM.Text); //從txtCM輸入文字框取得輸入的文字，並且轉換成double的資料型態
+            txtM.Text = string.Format("{0:0.##########}", douCM / 100); 
+            //將douCM的數值除以100，也就是從公分轉換成公尺
 
-        private void btnGO_Click(object sender, RoutedEventArgs e)
-        {
-  
-        }
+            double douM;
+            douM = Convert.ToDouble(txtM.Text); 
+            txtKM.Text = string.Format("{0:0.##########}", douM / 10);
 
-        private void txtShow_Copy5_TextChanged(object sender, TextChangedEventArgs e)
-        {
+            double douKM;
+            douKM = Convert.ToDouble(txtKM.Text);
+            txtIN.Text = string.Format("{0:0.##########}", douKM / 0.000025240000);
 
-        }
+            double douIN;
+            douIN = Convert.ToDouble(txtM.Text);
+            txtFT.Text = string.Format("{0:0.##########}", douIN * 12);
 
-        private void txtSHow_TextChanged(object sender, TextChangedEventArgs e)
-        {
+            double douFT;
+            douFT = Convert.ToDouble(txtM.Text);
+            txtYard.Text = string.Format("{0:0.##########}", douFT / 3);
 
         }
     }
