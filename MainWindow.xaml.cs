@@ -27,21 +27,14 @@ namespace lenght_convert
             txtM.Text = string.Format("{0:0.##########}", douCM / 100); 
             //將douCM的數值除以100，也就是從公分轉換成公尺
 
-            double douM;
-            douM = Convert.ToDouble(txtM.Text); 
-            txtKM.Text = string.Format("{0:0.##########}", douM / 10);
 
-            double douKM;
-            douKM = Convert.ToDouble(txtKM.Text);
-            txtIN.Text = string.Format("{0:0.##########}", douKM / 0.000025240000);
+            txtKM.Text = string.Format("{0:0.##########}", douCM / 10000);
 
-            double douIN;
-            douIN = Convert.ToDouble(txtM.Text);
-            txtFT.Text = string.Format("{0:0.##########}", douIN * 12);
+            txtIN.Text = string.Format("{0:0.##########}", douCM / 2.54);
 
-            double douFT;
-            douFT = Convert.ToDouble(txtM.Text);
-            txtYard.Text = string.Format("{0:0.##########}", douFT / 3);
+            txtFT.Text = string.Format("{0:0.##########}", douCM / 30.45);
+
+            txtYard.Text = string.Format("{0:0.##########}", douCM / 91.44);
 
         }
     }
