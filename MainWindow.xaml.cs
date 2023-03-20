@@ -91,5 +91,15 @@ namespace lenght_convert
             txtIN.Text = string.Format("{0:0.##########}", douYard * 36);
             txtFT.Text = string.Format("{0:0.##########}", douYard * 3);
         }
+
+        private void ButtonAllClear_Click(object sender, RoutedEventArgs e)
+        {
+            txtCM.Text = "0";
+            txtM.Text = "0";
+            txtKM.Text = "0";
+            txtIN.Text = "0";
+            txtFT.Text = "0";
+            txtYard.Text = "0";
+        }
     }
 }
