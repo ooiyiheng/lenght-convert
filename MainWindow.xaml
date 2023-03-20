@@ -16,11 +16,11 @@
         <Label Content="碼" HorizontalAlignment="Left" Height="33" Margin="587,213,0,0" VerticalAlignment="Top" Width="68" FontSize="16"/>
         <Label Content="説明文字" HorizontalAlignment="Left" Height="33" Margin="27,311,0,0" VerticalAlignment="Top" Width="93" FontSize="16"/>
         <TextBox x:Name="txtCM" HorizontalAlignment="Left" Height="49" Margin="29,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" KeyUp="txtCM_KeyUp"/>
-        <TextBox x:Name="txtKM" HorizontalAlignment="Left" Height="49" Margin="587,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        <TextBox x:Name="txtIN" HorizontalAlignment="Left" Height="48" Margin="29,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        <TextBox x:Name="txtM" HorizontalAlignment="Left" Height="49" Margin="310,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        <TextBox x:Name="txtFT" HorizontalAlignment="Left" Height="48" Margin="310,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
-        <TextBox x:Name="txtYard" HorizontalAlignment="Left" Height="48" Margin="587,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+        <TextBox x:Name="txtKM" HorizontalAlignment="Left" Height="49" Margin="587,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" KeyUp="txtKM_KeyUp"/>
+        <TextBox x:Name="txtIN" HorizontalAlignment="Left" Height="48" Margin="29,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" KeyUp="txtIN_KeyUp"/>
+        <TextBox x:Name="txtM" HorizontalAlignment="Left" Height="49" Margin="310,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" KeyUp="txtM_KeyUp_1"/>
+        <TextBox x:Name="txtFT" HorizontalAlignment="Left" Height="48" Margin="310,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" TextChanged="txtFT_TextChanged"/>
+        <TextBox x:Name="txtYard" HorizontalAlignment="Left" Height="48" Margin="587,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" KeyUp="txtYard_KeyUp"/>
         <TextBox x:Name="txtInfo" HorizontalAlignment="Left" Height="48
                  " Margin="29,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="748"/>
     </Grid>
