@@ -15,27 +15,40 @@ using System.Windows.Shapes;
 
 namespace lenght_convert
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         // 全域變數
         string strInput; // 字串型態的strInput變數
         double douOutput; // double浮點數型態的douOutput變數
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void caculateAnswer(int _kind, double _value)
+        {
+            if (_kind != 0)
+                txtCM.Text = string.Format("{0:0.##########}", _value);
+            if (_kind != 1)
+                txtM.Text = string.Format("{0:0.##########}", _value / 100);
+            if (_kind != 2)
+                txtKM.Text = string.Format("{0:0.##########}", _value / 100000);
+            if (_kind != 3)
+                txtIn.Text = string.Format("{0:0.##########}", _value / 2.54);
+            if (_kind != 4)
+                txtFt.Text = string.Format("{0:0.##########}", _value / 30.48);
+            if (_kind != 5)
+                txtYard.Text = string.Format("{0:0.##########}", _value / 91.44);
+        }
 
         private void txtCM_KeyUp(object sender, KeyEventArgs e)
         {
             strInput = txtCM.Text; // 將txtCM文字框的值放入strInput變數
 
-            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算 out = 輸出變數
+            // 判斷式，如果能夠以double.TryParse成功轉型，那才做數值的計算
             if (double.TryParse(strInput, out douOutput) == true)
             {
-                txtM.Text = string.Format("{0:0.##########}", douOutput / 100);
-                txtKM.Text = string.Format("{0:0.##########}", douOutput / 100000);
-                txtIN.Text = string.Format("{0:0.##########}", douOutput / 2.54);
-                txtFT.Text = string.Format("{0:0.##########}", douOutput / 30.48);
-                txtYard.Text = string.Format("{0:0.##########}", douOutput / 91.44);
+                caculateAnswer(0, douOutput);
             }
             else
             {
@@ -44,17 +57,14 @@ namespace lenght_convert
                 txtCM.Text = "";
             }
         }
+
         private void txtM_KeyUp(object sender, KeyEventArgs e)
         {
-            strInput = txtCM.Text;
+            strInput = txtM.Text;
 
             if (double.TryParse(strInput, out douOutput) == true)
             {
-                txtCM.Text = string.Format("{0:0.##########}", douOutput * 100);
-                txtKM.Text = string.Format("{0:0.##########}", douOutput * 0.001);
-                txtIN.Text = string.Format("{0:0.##########}", douOutput * 39.37);
-                txtFT.Text = string.Format("{0:0.##########}", douOutput * 3.28);
-                txtYard.Text = string.Format("{0:0.##########}", douOutput * 1.09);
+                caculateAnswer(1, douOutput * 100); // 事先將公尺轉換成公分
             }
             else
             {
@@ -69,11 +79,7 @@ namespace lenght_convert
 
             if (double.TryParse(strInput, out douOutput) == true)
             {
-                txtCM.Text = string.Format("{0:0.##########}", douOutput * 100);
-                txtM.Text = string.Format("{0:0.##########}", douOutput * 1000);
-                txtIN.Text = string.Format("{0:0.##########}", douOutput * 39370.1);
-                txtFT.Text = string.Format("{0:0.##########}", douOutput * 3280.84);
-                txtYard.Text = string.Format("{0:0.##########}", douOutput * 1093.61);
+                caculateAnswer(2, douOutput * 100000);
             }
             else
             {
@@ -81,57 +87,41 @@ namespace lenght_convert
                 txtKM.Text = "";
             }
         }
-
-        private void txtIN_KeyUp(object sender, KeyEventArgs e)
+        private void txtIn_KeyUp(object sender, KeyEventArgs e)
         {
-            strInput = txtIN.Text;
+            strInput = txtIn.Text;
 
             if (double.TryParse(strInput, out douOutput) == true)
             {
-                txtCM.Text = string.Format("{0:0.##########}", douOutput * 2.54);
-                txtM.Text = string.Format("{0:0.##########}", douOutput * 0.0254);
-                txtKM.Text = string.Format("{0:0.##########}", douOutput * 0.0000254);
-                txtFT.Text = string.Format("{0:0.##########}", douOutput * 0.0833);
-                txtYard.Text = string.Format("{0:0.##########}", douOutput * 0.0278);
+                caculateAnswer(3, douOutput * 2.54);
             }
             else
             {
                 txtInfo.Text = "請輸入數字";
-                txtIN.Text = "";
+                txtIn.Text = "";
             }
         }
-
-
-        private void txtFT_KeyUp(object sender, KeyEventArgs e)
+        private void txtFt_KeyUp(object sender, KeyEventArgs e)
         {
-            strInput = txtFT.Text;
+            strInput = txtFt.Text;
 
             if (double.TryParse(strInput, out douOutput) == true)
             {
-                txtCM.Text = string.Format("{0:0.##########}", douOutput * 30.48);
-                txtM.Text = string.Format("{0:0.##########}", douOutput * 0.3048);
-                txtKM.Text = string.Format("{0:0.##########}", douOutput * 0.0003048);
-                txtIN.Text = string.Format("{0:0.##########}", douOutput * 12);
-                txtYard.Text = string.Format("{0:0.##########}", douOutput * 0.3333);
+                caculateAnswer(4, douOutput * 30.48);
             }
             else
             {
                 txtInfo.Text = "請輸入數字";
-                txtFT.Text = "";
+                txtFt.Text = "";
             }
         }
-
         private void txtYard_KeyUp(object sender, KeyEventArgs e)
         {
             strInput = txtYard.Text;
 
             if (double.TryParse(strInput, out douOutput) == true)
             {
-                txtCM.Text = string.Format("{0:0.##########}", douOutput * 91.44);
-                txtM.Text = string.Format("{0:0.##########}", douOutput * 0.9144);
-                txtKM.Text = string.Format("{0:0.##########}", douOutput * 0.0009144);
-                txtIN.Text = string.Format("{0:0.##########}", douOutput * 36);
-                txtFT.Text = string.Format("{0:0.##########}", douOutput * 3);
+                caculateAnswer(5, douOutput * 91.44);
             }
             else
             {
@@ -139,15 +129,14 @@ namespace lenght_convert
                 txtYard.Text = "";
             }
         }
-
         private void ButtonAllClear_Click(object sender, RoutedEventArgs e)
         {
-            txtCM.Text = "0";
-            txtM.Text = "0";
-            txtKM.Text = "0";
-            txtIN.Text = "0";
-            txtFT.Text = "0";
-            txtYard.Text = "0";
+            txtCM.Text = "";
+            txtM.Text = "";
+            txtKM.Text = "";
+            txtIn.Text = "";
+            txtFt.Text = "";
+            txtYard.Text = "";
         }
     }
 }
